@@ -17,3 +17,7 @@ def contar_num_dias_con_max(tmax,doc):
 ## Contar el numero de dias cuya temperatura min es la introducida por teclado.
 def contar_num_dias_con_min(tmin,doc):
     return int(doc.xpath('count(//temperatura[minima="%i"])'%(tmin)))
+
+#####Buscar o filtrar Informacion: Pide una fecha y muestra la informacion completa del tiempo.
+
+def info_prediccion_completa(fecha,doc):
