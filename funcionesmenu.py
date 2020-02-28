@@ -261,12 +261,23 @@ def info_prediccion_completa(fecha,doc):
     return prediccion
 
 
-
-
-
-
-
 #####Buscar informacion relacionada: Mostrar la fecha cuya temperatura max y min sean igual a la introducida por teclado.
+
+def dias_con_maxymin(tmax,tmin,doc):
+
+    indicador=False
+    fechas=[]
+
+    for dia in doc.xpath('//dia'):
+        if dia.xpath('./temperatura[maxima="%i"]'%(tmax)) and dia.xpath('./temperatura[minima="%i"]'%(tmin)):
+            indicador=True
+            fechas.append(dia.xpath('./@fecha')[0])
+
+    if not indicador:
+        return indicador
+    else:
+        return fechas
+
 
 
 

@@ -26,7 +26,7 @@ while True:
         print("\t--- Dias de los cuales tenemos información del tiempo ---")
         print()
         for fecha in lista_fechas(doc):
-            print("\t",fecha)
+            print("\t   ",fecha)
         print()
 
     elif opcion == 2:
@@ -77,13 +77,28 @@ while True:
         fecha=input("\tIntroduzca una fecha: ")
         print()
 
-        for elem in info_prediccion_completa(fecha,doc):
-            print(elem)
+        if fecha not in lista_fechas(doc):
+            print("\tError, fecha incorrecta.")
+        else:
+
+            ## Elempre -> elementos de la prediccion
+
+            for elempre in info_prediccion_completa(fecha,doc):
+                print(elempre)
 
 
     elif opcion == 4:
         print()
-
+        tmax=int(input("\tTemperatura Máxima: "))
+        tmin=int(input("\tTemperatura Mínima: "))
+        print()
+        if not dias_con_maxymin(tmax,tmin,doc):
+            print("\tNo hay fechas que coincidan con la máxima y la mínima introducida por teclado.")
+        else:
+            print("\t--- Fechas en las que tendremos una máxima de %iºC y una mínima de %iºC ---"%(tmax,tmin))
+            print()
+            for fecha in dias_con_maxymin(tmax,tmin,doc):
+                print("\t   ",fecha)
         print()
 
     elif opcion == 5:

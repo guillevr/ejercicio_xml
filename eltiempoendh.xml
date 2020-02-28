@@ -311,8 +311,8 @@
 			</viento>
 			<racha_max></racha_max>
 			<temperatura>
-				<maxima>24</maxima>
-				<minima>9</minima>
+				<maxima>20</maxima>
+				<minima>10</minima>
 			</temperatura>
 			<sens_termica>
 				<maxima>24</maxima>
