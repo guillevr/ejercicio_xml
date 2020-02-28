@@ -103,6 +103,34 @@ while True:
 
     elif opcion == 5:
         print()
+        tmax=int(input("\tTemperatura Máxima: "))
+        tmin=int(input("\tTemperatura Mínima: "))
+
+        #ec // estcie-> estado cielo
+        ec="| "
+        for estcie in estados_del_cielo(doc):
+            ec=ec+estcie+" | "
+
+        print()
+        print("\tEstados de cielo disponibles: %s"%(ec))
+        print()
+
+        estadocielo=input("\tEstado cielo: ")
+        if estadocielo not in estados_del_cielo(doc):
+            print("\tError, estado del cielo erroneo.")
+        else:
+            print()
+            if not dias_con_estcielo_tmaxtmin(tmax,tmin,estadocielo,doc):
+                print("\tNo se han encontrado fechas que coincidan con los siguientes datos: ")
+                print("\tTemperatura Máx: %i // Temperatura Mín: %i // Estado cielo: %s"%(tmax,tmin,estadocielo))
+            else:
+                print("\t--- Fechas que coinciden los siguientes datos ---")
+                print("\tTemperatura Máx: %i // Temperatura Mín: %i // Estado cielo: %s"%(tmax,tmin,estadocielo))
+                print()
+                for fecha in dias_con_estcielo_tmaxtmin(tmax,tmin,estadocielo,doc):
+                    print("\t   *",fecha)
+
+
 
         print()
     else:

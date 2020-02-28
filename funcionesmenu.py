@@ -279,6 +279,29 @@ def dias_con_maxymin(tmax,tmin,doc):
         return fechas
 
 
-
-
 #####Ejercicio Libre: Pide el una temperatura max y min y muestra por teclado aquella fecha cual estado_cielo sea igual al introducido por teclado teniendo en cuenta la temperatura max y min.
+
+def estados_del_cielo(doc):
+    ## tipos_ec -> tipos estado cielo
+    tipos_ec=[]
+    for estadocielo in doc.xpath('//dia/estado_cielo/@descripcion'):
+        if estadocielo != "":
+            if estadocielo not in tipos_ec:
+                tipos_ec.append(estadocielo)
+
+    return tipos_ec
+
+## estcie -> estado cielo
+def dias_con_estcielo_tmaxtmin(tmax,tmin,estcie,doc):
+    indicador=False
+    fechas=[]
+
+    for dia in doc.xpath('//dia'):
+        if dia.xpath('./temperatura[maxima="%i"]'%(tmax)) and dia.xpath('./temperatura[minima="%i"]'%(tmin)) and dia.xpath('./estado_cielo[@descripcion="%s"]'%(estcie)):
+            indicador=True
+            fechas.append(dia.xpath('./@fecha')[0])
+
+    if not indicador:
+        return indicador
+    else:
+        return fechas

@@ -304,7 +304,7 @@
 		<dia fecha="2020-03-04">
 			<prob_precipitacion>5</prob_precipitacion>
 			<cota_nieve_prov></cota_nieve_prov>
-			<estado_cielo descripcion="Intervalos nubosos">13</estado_cielo>
+			<estado_cielo >13</estado_cielo>
 			<viento>
 				<direccion>C</direccion>
 				<velocidad>0</velocidad>
